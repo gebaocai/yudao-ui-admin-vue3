@@ -1,6 +1,8 @@
 import type { CrudSchema } from '@/hooks/web/useCrudSchemas'
 import { dateFormatter, dateFormatter2 } from '@/utils/formatTime'
-import { getSimpleSeckillConfigList } from '@/api/mall/promotion/seckill/seckillConfig'
+
+import { SeckillConfigApi as getSimpleSeckillConfigList } from '@/api/mall/promotion/seckill/seckillConfig'
+// import { getSimpleSeckillConfigList } from '@/api/mall/promotion/seckill/seckillConfig'
 
 // 表单校验
 export const rules = reactive({
