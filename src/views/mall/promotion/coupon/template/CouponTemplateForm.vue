@@ -10,6 +10,18 @@
       <el-form-item label="优惠券名称" prop="name">
         <el-input v-model="formData.name" placeholder="请输入优惠券名称" />
       </el-form-item>
+      <el-form-item label="优惠券描述" prop="description">
+        <el-input
+          v-model="formData.description"
+          :autosize="{ minRows: 2, maxRows: 2 }"
+          :clearable="true"
+          :show-word-limit="true"
+          class="w-1/1!"
+          maxlength="512"
+          placeholder="请输入优惠券描述"
+          type="textarea"
+        />
+      </el-form-item>
       <el-form-item label="优惠劵类型" prop="productScope">
         <el-radio-group v-model="formData.productScope">
           <el-radio
@@ -144,7 +156,6 @@
         <el-date-picker
           v-model="formData.validTimes"
           :default-time="[new Date(2000, 1, 1, 0, 0, 0), new Date(2000, 2, 1, 23, 59, 59)]"
-          style="width: 240px"
           type="datetimerange"
           value-format="x"
         />
@@ -218,6 +229,7 @@ const formData = ref({
   fixedStartTerm: undefined,
   fixedEndTerm: undefined,
   productScope: PromotionProductScopeEnum.ALL.scope,
+  description: undefined,
   productScopeValues: [], // 商品范围：值为 品类编号列表 或 商品编号列表 ，用于提交
   productCategoryIds: [], // 仅用于表单，不提交
   productSpuIds: [] // 仅用于表单，不提交
@@ -323,6 +335,7 @@ const resetForm = () => {
   formData.value = {
     id: undefined,
     name: undefined,
+    description: undefined,
     discountType: PromotionDiscountTypeEnum.PRICE.type,
     discountPrice: undefined,
     discountPercent: undefined,
